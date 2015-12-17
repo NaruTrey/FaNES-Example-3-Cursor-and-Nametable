@@ -18,6 +18,7 @@ static uchar cursorX = 124, cursorY = 134;
 static uchar pad;
 
 void main() {
+    setPaletteColor(PALETTE_BACKGROUND_1 + 0, 0x0F);
     setPaletteColor(3, 0x21);
     setPaletteColor(19, 0x30);
     printNametableString(NAMETABLE_A_POSITION(2, 2), "X:--- Y:");
