@@ -7,9 +7,9 @@ const uchar updateNametableListInit[6 * 3 + 13 + 11 + 1] = {
     MSB(NAMETABLE_A_POSITION(10, 2)), LSB(NAMETABLE_A_POSITION(10, 2)), '0',
     MSB(NAMETABLE_A_POSITION(11, 2)), LSB(NAMETABLE_A_POSITION(11, 2)), '0',
     MSB(NAMETABLE_A_POSITION(12, 2)), LSB(NAMETABLE_A_POSITION(12, 2)), '0',
-    MSB(NAMETABLE_A_POSITION(2, 4)) | UPDATE_NAMETABLE_HORIZONTAL, LSB(NAMETABLE_A_POSITION(2, 4)), 10, 'H', 'O', 'R', 'I', 'Z', 'O', 'N', 'T', 'A', 'L',
-    MSB(NAMETABLE_A_POSITION(2, 6)) | UPDATE_NAMETABLE_VERTICAL, LSB(NAMETABLE_A_POSITION(2, 6)), 8, 'V', 'E', 'R', 'T', 'I', 'C', 'A', 'L',
-    UPDATE_NAMETABLE_END
+    MSB(NAMETABLE_A_POSITION(2, 4)) | NAMETABLE_UPDATE_HORIZONTAL, LSB(NAMETABLE_A_POSITION(2, 4)), 10, 'H', 'O', 'R', 'I', 'Z', 'O', 'N', 'T', 'A', 'L',
+    MSB(NAMETABLE_A_POSITION(2, 6)) | NAMETABLE_UPDATE_VERTICAL, LSB(NAMETABLE_A_POSITION(2, 6)), 8, 'V', 'E', 'R', 'T', 'I', 'C', 'A', 'L',
+    NAMETABLE_UPDATE_END
 };
 
 static uchar updateNametableList[6 * 3 + 13 + 11 + 1];
@@ -27,7 +27,7 @@ void main() {
     newSprite(cursorX, cursorY, 0x0E, NULL, 0);
     onGraphics();
     while(TRUE) {
-        pad = padPool(PAD_PORT_PLAYER_1);
+        pad = padPool(PAD_PORT_1);
 
         if(pad & PAD_BUTTON_LEFT && cursorX > 0) cursorX -= 2;
         if(pad & PAD_BUTTON_RIGHT && cursorX < 254) cursorX += 2;
